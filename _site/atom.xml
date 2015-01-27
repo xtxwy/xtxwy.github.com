@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>4xFlavor</title>
+ <link href="http://xtxwy.github.com/atom.xml" rel="self"/>
+ <link href="http://xtxwy.github.com/"/>
+ <updated>2015-01-27T16:49:08+08:00</updated>
+ <id>http://xtxwy.github.com/</id>
+ <author>
+   <name>xtxwy</name>
+   <email>zhangwei.ustc@outlook.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Security Study Plan</title>
+   <link href="http://xtxwy.github.com/all/life/fromweibo/2013/08/02/security-study-plan.html"/>
+   <updated>2013-08-02T00:00:00+08:00</updated>
+   <id>http://xtxwy.github.com/all/life/fromweibo/2013/08/02/security-study-plan</id>
+   <content type="html">&lt;h2 id='id1'&gt;六个月大变身&lt;/h2&gt;
+
+&lt;h3 id='id2'&gt;要点(气宗)&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;先去搜“aspcode.c”，把这个代码调通、看懂。&lt;/li&gt;
+
+&lt;li&gt;&lt;a href='http://cybersword.net/attack/exploit/558.html'&gt;ASLR/DEP绕过技术概览&lt;/a&gt;，把里面每一点都实践一遍。&lt;/li&gt;
+
+&lt;li&gt;把Vupen这&lt;a href='http://www.vupen.com/blog/'&gt;十几篇漏洞分析&lt;/a&gt;实践一遍。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id='id3'&gt;要点(剑宗)&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href='http://book.douban.com/subject/20451827/'&gt;Web前端黑客技术揭秘&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href='http://book.douban.com/subject/10546925/'&gt;白帽子讲Web安全&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id='id4'&gt;时间跨度&lt;/h3&gt;
+
+&lt;p&gt;1-3个月 + 1-3个月&lt;/p&gt;
+
+&lt;h3 id='id5'&gt;建议&lt;/h3&gt;
+
+&lt;p&gt;如果超过6个月还没完成，就别整了，换个职业发展方向吧。&lt;/p&gt;</content>
+ </entry>
+ 
+ 
+</feed>
