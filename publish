@@ -5,6 +5,7 @@ then
     git add --all && git commit -a 
     git push origin master
 else
-    jekyll --server &
-    firefox localhost:4000
+	open /Applications/Firefox.app
+    jekyll --server
+    #firefox localhost:4000
 fi

@@ -29,21 +29,19 @@
 </div>
 
 <div id="content">  
-  <h2 id='id10'>说明</h2>
+  <h2 id="section">说明</h2>
 
 <p>我只记录自己感兴趣的一些gdb调试知识。比较好且详细的几篇文章如下：</p>
 
 <ol>
-<li><a href='http://blog.csdn.net/haoel/article/category/9197'>陈皓的“用GDB调试程序”7篇文章</a></li>
-
-<li><a href='http://wiki.ubuntu.org.cn/%E7%94%A8GDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F'>ubuntu上的“用GDB调试程序”(对陈皓文章的归一和总结)</a></li>
-
-<li><a href='http://coolshell.cn/articles/3643.html'>陈皓的“GDB中应该知道的几个调试方法”</a></li>
+  <li><a href="http://blog.csdn.net/haoel/article/category/9197">陈皓的“用GDB调试程序”7篇文章</a></li>
+  <li><a href="http://wiki.ubuntu.org.cn/%E7%94%A8GDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F">ubuntu上的“用GDB调试程序”(对陈皓文章的归一和总结)</a></li>
+  <li><a href="http://coolshell.cn/articles/3643.html">陈皓的“GDB中应该知道的几个调试方法”</a></li>
 </ol>
 
-<h2 id='gdb'>常用的GDB调试命令</h2>
+<h2 id="gdb">常用的GDB调试命令</h2>
 
-<h3 id='id11'>启动程序</h3>
+<h3 id="section-1">启动程序</h3>
 
 <pre><code>gdb &lt;program&gt;
 gdb &lt;program&gt; core
@@ -51,18 +49,20 @@ gdb &lt;program&gt; &lt;pid&gt;
 gdb &lt;program&gt; -symbols &lt;file&gt; OR -s &lt;file&gt;
 gdb &lt;program&gt; -se file
 gdb &lt;program&gt; -core &lt;file&gt; OR -c &lt;file&gt;
-gdb &lt;program&gt; -directory &lt;dir&gt; OR -d &lt;dir&gt;</code></pre>
+gdb &lt;program&gt; -directory &lt;dir&gt; OR -d &lt;dir&gt;
+</code></pre>
 
 <p>core是程序非法执行后core dump后产生的文件，而pid就是attach方式调试。-s表示从指定文件中读取符号表，-se表示从指定文件中读取符号表信息，并把他用在可执行文件中。-core表示core dump的core文件，-d表示加入一个源文件的搜索路径。</p>
 
-<h3 id='id12'>常用调试命令</h3>
+<h3 id="section-2">常用调试命令</h3>
 
-<h4 id='id13'>设置运行参数</h4>
+<h4 id="section-3">设置运行参数</h4>
 
 <pre><code>(gdb) set args &lt;参数列表&gt;
-(gdb) show args</code></pre>
+(gdb) show args
+</code></pre>
 
-<h4 id='id14'>下断点</h4>
+<h4 id="section-4">下断点</h4>
 
 <pre><code>(gdb) b main //在main函数入口下断点
 (gdb) b test.c:112 //在test.c第112行代码处下断点
@@ -71,16 +71,18 @@ gdb &lt;program&gt; -directory &lt;dir&gt; OR -d &lt;dir&gt;</code></pre>
 (gdb) b +offset OR b -offset //当前行前面或后面偏移offset处
 (gdb) b *&lt;address&gt; //内存地址address
 (gdb) watch &lt;expr&gt; //当expr发生变化，断住
-(gdb) rwatch &lt;expr&gt; OR awatch &lt;expr&gt; //expr被读 OR 读或写</code></pre>
+(gdb) rwatch &lt;expr&gt; OR awatch &lt;expr&gt; //expr被读 OR 读或写
+</code></pre>
 
-<h4 id='id15'>自动显示变量值</h4>
+<h4 id="section-5">自动显示变量值</h4>
 
 <pre><code>(gdb) display &lt;expr&gt;
-(gdb) display/&lt;format&gt; &lt;addr&gt;  </code></pre>
+(gdb) display/&lt;format&gt; &lt;addr&gt;  
+</code></pre>
 
 <p>addr表示内存地址，format指定格式。有：x表示16进制，c字符，d十进制等。当程序停住时，或是在你单步跟踪时，这些变量会自动显示。</p>
 
-<h4 id='id16'>查看信息</h4>
+<h4 id="section-6">查看信息</h4>
 
 <pre><code>(gdb) list &lt;行号&gt; //显示指定行周围的源代码
 (gdb) list &lt;function&gt;
@@ -92,11 +94,12 @@ gdb &lt;program&gt; -directory &lt;dir&gt; OR -d &lt;dir&gt;</code></pre>
 (gdb) print &lt;expr&gt; OR p &lt;expr&gt;
 (gdb) bt [n] //查看栈帧，栈顶往上n层
 (gdb) macro &lt;宏&gt; //查看宏展开的样子
-(gdb) info macro </code></pre>
+(gdb) info macro 
+</code></pre>
 
 <p>要启动查看宏功能，需要gcc编译时，加上-ggdb3参数</p>
 
-<h4 id='id17'>运行一系列命令</h4>
+<h4 id="section-7">运行一系列命令</h4>
 
 <pre><code>(gdb) break foo
 commands
@@ -106,31 +109,36 @@ commands
 (gdb) define &lt;name&gt;
 &gt;print x
 &gt;print y
-&gt;end</code></pre>
+&gt;end
+</code></pre>
 
 <p>为foo断点设置运行的命令列表。define是设置name表示一组命令。</p>
 
-<h4 id='id18'>改变程序的执行</h4>
+<h4 id="section-8">改变程序的执行</h4>
 
 <pre><code>(gdb) print x=4  //设置x=4
 (gdb) set x=4
 (gdb) jump &lt;行号&gt;
-(gdb) return //不执行函数直接返回</code></pre>
+(gdb) return //不执行函数直接返回
+</code></pre>
 
-<h4 id='id19'>设置捕捉点</h4>
+<h4 id="section-9">设置捕捉点</h4>
 
-<pre><code>(gdb) catch &lt;event&gt;</code></pre>
+<pre><code>(gdb) catch &lt;event&gt;
+</code></pre>
 
 <p>event有：throw, catch, exec, fork, vfork, load, unload</p>
 
-<h4 id='gdb'>gdb中重编译程序</h4>
+<h4 id="gdb-1">gdb中重编译程序</h4>
 
 <pre><code>(gdb) shell &lt;command string&gt;
-(gdb) make &lt;args&gt; //等价于:shell make &lt;args&gt;</code></pre>
+(gdb) make &lt;args&gt; //等价于:shell make &lt;args&gt;
+</code></pre>
 
-<h4 id='id20'>多线程调试</h4>
+<h4 id="section-10">多线程调试</h4>
 
-<p>参考文章：<a href='http://coolshell.cn/articles/3643.html'>GDB中应该知道的几个调试方法</a></p>
+<p>参考文章：<a href="http://coolshell.cn/articles/3643.html">GDB中应该知道的几个调试方法</a></p>
+
 </div>
 
 <div id="footer">
